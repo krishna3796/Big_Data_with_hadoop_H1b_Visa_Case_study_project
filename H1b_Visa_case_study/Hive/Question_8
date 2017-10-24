@@ -1,0 +1,5 @@
+8) Find the average Prevailing Wage for each Job for each Year (take part time and full time separate). Arrange the output in descending order - [Certified and Certified Withdrawn.]
+
+select year,job_title,avg(prevailing_wage) as totavg from h1b_final where full_time_position='Y' and (case_status='CERTIFIED' OR case_status='CERTIFIED-WITHDRAWN') group by job_title,year order by totavg desc;
+
+select year,job_title,avg(prevailing_wage) as totavg from h1b_final where full_time_position='N' and (case_status='CERTIFIED' OR case_status='CERTIFIED-WITHDRAWN') group by job_title,year order by totavg desc;

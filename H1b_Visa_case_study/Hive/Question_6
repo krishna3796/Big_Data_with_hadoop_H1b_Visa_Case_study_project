@@ -1,0 +1,3 @@
+6) Find the percentage and the count of each case status on total applications for each year. Create a line graph depicting the pattern of All the cases over the period of time.
+
+hive -e "select a.case_status,count(a.case_status) as case_count,round((count(a.case_status)/total*100),2) as case_percent from h1b.h1b_final a,h1b.totalcount b where a.year='$year' group by a.case_status,b.total;"

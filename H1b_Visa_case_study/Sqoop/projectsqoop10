@@ -1,0 +1,5 @@
+mysql -u root -p'root' -e 'drop database question10;create database if not exists question10;use question10;create table q10(job_title varchar(100),success_rate float,petitions int);';
+
+sqoop export --connect jdbc:mysql://localhost/question10 --username root --password 'root' --table q10 --update-mode allowinsert  --export-dir /output/pigout/pigproject10/p* --input-fields-terminated-by '\t' 
+
+mysql -u root -p'root' -e 'select * from question10.q10';
